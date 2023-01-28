@@ -34,6 +34,8 @@ use({
             fg = vim.api.nvim_get_hl_by_name('NonText', true).foreground,
             bg = vim.api.nvim_get_hl_by_name('StatusLine', true).background,
         })
+
+        -- vim.api.nvim_set_hl(0, 'IndentBlanklineChar', { fg = '#2F313b', })
     end,
 })
 use('tpope/vim-commentary')
@@ -124,14 +126,61 @@ use({
 })
 
 use({
+    'lukas-reineke/indent-blankline.nvim',
+    config = function()
+        require('user.plugins.indent-blankline')
+    end,
+})
+
+use({
+    'lewis6991/gitsigns.nvim',
+    requires = 'nvim-lua/plenary.nvim',
+    config = function()
+        require('gitsigns').setup({
+            sign_priority = 20,
+            on_attach = function(bufnr)
+                vim.keymap.set('n', ']h', "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", { expr = true, buffer = bufnr })
+                vim.keymap.set('n', '[h', "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", { expr = true, buffer = bufnr })
+             end
+        })
+    end,
+})
+
+use({
     'akinsho/bufferline.nvim',
     requires = 'kyazdani42/nvim-web-devicons',
     after = 'dracula.nvim',
     config = function()
       require('user.plugins.bufferline')
     end,
- })
+})
 
+use({
+    'tpope/vim-fugitive',
+    requires = 'tpope/vim-rhubarb',
+    cmd = 'G',
+})
+
+use({
+    'voldikss/vim-floaterm',
+    config = function()
+        vim.g.floaterm_width = 0.8
+        vim.g.floaterm_height = 0.8
+        vim.keymap.set('n', '<F9>', ':FloatermToggle<CR>')
+        vim.keymap.set('t', '<F9>', '<C-\\><C-n>:FloatermToggle<CR>')
+
+        vim.cmd([[
+            highlight link FloatermBorder CursorLineBg
+        ]])
+    end,
+})
+
+use({
+    'glepnir/dashboard-nvim',
+    config = function()
+        require('user.plugins.dashboard')
+    end,
+})
 
 -- Automatically set up your configuration after cloning packer.nvim
 -- Put this at the end after all plugins
