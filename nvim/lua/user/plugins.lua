@@ -191,65 +191,39 @@ use({
         'JoosepAlviste/nvim-ts-context-commentstring',
     }, 
     config = function()
-        require('nvim-treesitter.configs').setup({
-                highlight = {
-                    enable = true,
-                    disable = { 'NvimTree' },
-                    additional_vim_regex_highlighting = true,
-                },
-                textobjects = {
-                    select = {
-                        enable = true,
-                        lookahead = true,
-                        keymaps = {
-                            ["if"] = "@function.inner",
-                            ["af"] = "@function.outer",
-                            ["ic"] = "@class.inner",
-                            ["ac"] = "@class.outer",
-                            ['ia'] = '@parameter.inner',
-                            ['aa'] = '@parameter.outer',
-                        },
-                    },
-                },
-                context_commentstring = {
-                    enable = true,
-                },
-            })
+        require('user.plugins.treesitter')
     end,
-})
-
-use({
-  'neovim/nvim-lspconfig',
-  requires = {
-    'b0o/schemastore.nvim',
-    'folke/lsp-colors.nvim',
-  },
-  config = function()
-    require('user.plugins.lspconfig')
-  end,
-})
-
-use({
-  'hrsh7th/nvim-cmp',
-  requires = {
-    'L3MON4D3/LuaSnip',
-    'hrsh7th/cmp-buffer',
-    'hrsh7th/cmp-cmdline',
-    'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-nvim-lsp-signature-help',
-    'hrsh7th/cmp-nvim-lua',
-    'jessarcher/cmp-path',
-    'onsails/lspkind-nvim',
-    'saadparwaiz1/cmp_luasnip',
-  },
-  config = function()
-    require('user.plugins.cmp')
-  end,
 })
 
 use({
   'weilbith/nvim-code-action-menu',
   cmd = 'CodeActionMenu',
+})
+
+use({
+  'VonHeikemen/lsp-zero.nvim',
+  branch = 'v1.x',
+  requires = {
+    -- LSP Support
+    {'neovim/nvim-lspconfig'},             -- Required
+    {'williamboman/mason.nvim'},           -- Optional
+    {'williamboman/mason-lspconfig.nvim'}, -- Optional
+
+    -- Autocompletion
+    {'hrsh7th/nvim-cmp'},         -- Required
+    {'hrsh7th/cmp-nvim-lsp'},     -- Required
+    {'hrsh7th/cmp-buffer'},       -- Optional
+    {'hrsh7th/cmp-path'},         -- Optional
+    {'saadparwaiz1/cmp_luasnip'}, -- Optional
+    {'hrsh7th/cmp-nvim-lua'},     -- Optional
+
+    -- Snippets
+    {'L3MON4D3/LuaSnip'},             -- Required
+    {'rafamadriz/friendly-snippets'}, -- Optional
+  },
+  config = function()
+      require('user.plugins.lsp-zero')
+  end
 })
 
 -- Automatically set up your configuration after cloning packer.nvim
