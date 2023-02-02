@@ -26,7 +26,8 @@ local use = require('packer').use
 use('wbthomason/packer.nvim')
 
 use({
-    'Mofiqul/dracula.nvim', 
+    'dracula/vim',
+    as = 'dracula',
     config = function()
         vim.cmd('colorscheme dracula')
 
@@ -149,7 +150,7 @@ use({
 use({
     'akinsho/bufferline.nvim',
     requires = 'kyazdani42/nvim-web-devicons',
-    after = 'dracula.nvim',
+    after = 'dracula',
     config = function()
       require('user.plugins.bufferline')
     end,
@@ -227,6 +228,11 @@ use({
 })
 
 use({'github/copilot.vim'})
+
+use {
+    'glacambre/firenvim',
+    run = function() vim.fn['firenvim#install'](0) end 
+}
 
 -- Automatically set up your configuration after cloning packer.nvim
 -- Put this at the end after all plugins

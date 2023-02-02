@@ -101,14 +101,15 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim="nvim"
 alias pa="php artisan"
-alias md5="python ~/.config/scripts/md5.py"
 alias scripts="ssh cosme@161.35.120.45"
 alias cosmedev="ssh shopliber@159.89.82.207"
 alias safari='vim $(date +%N).txt'
 alias update-discord='pacman -U https://www.archlinux.org/packages/community/x86_64/discord/download/'
 alias pm='python manage.py'
+alias cr="printf \"import random\ngatos = ['damian', 'carlos', 'paul']\ngato1 = random.choice(gatos)\ngatos.remove(gato1)\nprint(gato1, random.choice(gatos))\" | python"
 
 path=(
     $HOME/.local/bin
+    $HOME/.config/composer/vendor/bin
     $path
 )

@@ -31,7 +31,9 @@ vim.keymap.set('i', ',,', '<Esc>A,<Esc>')
 vim.keymap.set('n', '<leader>x', ':!xdg-open %<cr><cr>')
 
 -- Disable annoying command line thing
-vim.keymap.set('n', 'q:', ':q<CR>')
+vim.keymap.set('n', 'q:', ':bd<CR>')
+vim.keymap.set('c', 'q', 'bd')
+vim.keymap.set('c', 'qa', 'qa')
 
 -- Resize with arrows
 vim.keymap.set('n', '<C-Up>', ':resize +2<CR>')

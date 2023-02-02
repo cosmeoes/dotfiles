@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# generate mod5 of first argument using python
+python -c "import hashlib; print(hashlib.md5('$1'.encode()).hexdigest())"
