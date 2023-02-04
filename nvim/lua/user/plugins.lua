@@ -231,8 +231,15 @@ use({'github/copilot.vim'})
 
 use {
     'glacambre/firenvim',
-    run = function() vim.fn['firenvim#install'](0) end 
+    run = function() vim.fn['firenvim#install'](0) end
 }
+
+use({
+  'vim-test/vim-test',
+  config = function()
+    require('user.plugins.vim-test')
+  end,
+})
 
 -- Automatically set up your configuration after cloning packer.nvim
 -- Put this at the end after all plugins
