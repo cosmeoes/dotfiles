@@ -1,4 +1,14 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python
 
-# generate mod5 of first argument using python
-python -c "import hashlib; print(hashlib.md5('$1'.encode()).hexdigest())"
+import hashlib
+import sys
+import pyperclip
+
+if len(sys.argv) < 2:
+    print("No string to hash")
+
+result = hashlib.md5(sys.argv[1].encode())
+
+md5 = result.hexdigest()
+print(md5)
+pyperclip.copy(md5)
