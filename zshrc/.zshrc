@@ -113,3 +113,7 @@ path=(
     $HOME/.config/composer/vendor/bin
     $path
 )
+
+if [ -d env ]; then
+    source env/bin/activate
+fi
