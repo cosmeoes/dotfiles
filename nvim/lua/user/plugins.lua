@@ -50,7 +50,7 @@ use('christoomey/vim-tmux-navigator')
 use('farmergreg/vim-lastplace')
 use('nelstrom/vim-visual-star-search')
 use('jessarcher/vim-heritage')
-use({'github/copilot.vim'})
+-- use({'github/copilot.vim'})
 use({
     'whatyouhide/vim-textobj-xmlattr',
     requires = 'kana/vim-textobj-user',

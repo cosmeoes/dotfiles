@@ -19,6 +19,9 @@ require('lspconfig').tailwindcss.setup({ capabilities = capabilities })
 -- Python
 require('lspconfig').pyright.setup({})
 
+-- golang
+require('lspconfig').gopls.setup({})
+
 vim.keymap.set('n', '<Leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>')
 vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
 vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>')

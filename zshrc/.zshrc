@@ -111,6 +111,7 @@ alias cr="printf \"import random\ngatos = ['damian', 'carlos', 'paul']\ngato1 = 
 path=(
     $HOME/.local/bin
     $HOME/.config/composer/vendor/bin
+    /usr/local/go/bin
     $path
 )
 
