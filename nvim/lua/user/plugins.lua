@@ -56,24 +56,9 @@ use({
     requires = 'kana/vim-textobj-user',
 })
 use({
-    'airblade/vim-rooter',
-    setup = function()
-        vim.g.rooter_manual_only = 1
-    end,
-    config = function ()
-        vim.cmd('Rooter')
-    end,
-})
-use({
     'windwp/nvim-autopairs',
     config = function()
         require('nvim-autopairs').setup()
-    end,
-})
-use({
-    'karb94/neoscroll.nvim',
-    config = function()
-        require('neoscroll').setup()
     end,
 })
 use({
