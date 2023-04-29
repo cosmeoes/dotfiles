@@ -185,6 +185,10 @@ use({
 })
 
 use({
+    'nvim-treesitter/nvim-treesitter-context'
+})
+
+use({
   'weilbith/nvim-code-action-menu',
   cmd = 'CodeActionMenu',
 })
