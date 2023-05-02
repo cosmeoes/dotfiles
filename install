@@ -33,3 +33,5 @@ rm -rf $HOME/.config/i3/config
 rm -rf $HOME/.config/i3/i3blocks.conf
 ln -s $DOTFILES/i3/config $HOME/.config/i3/config
 ln -s $DOTFILES/i3/i3blocks.conf $HOME/.config/i3/i3blocks.conf
+rm -rf $HOME/.config/polybar
+ln -s $DOTFILES/i3/polybar $HOME/.config/polybar
