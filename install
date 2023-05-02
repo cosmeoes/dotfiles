@@ -28,3 +28,6 @@ ln -s $DOTFILES/zshrc/.zshrc $HOME/.zshrc
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
     KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
+
+rm -rf $HOME/.config/i3/config
+ln -s $DOTFILES/i3/config $HOME/.config/i3/config
