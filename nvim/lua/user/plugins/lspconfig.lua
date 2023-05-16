@@ -14,7 +14,7 @@ require('lspconfig').volar.setup({
 })
 
 -- Tailwindcss
-require('lspconfig').tailwindcss.setup({ capabilities = capabilities })
+-- require('lspconfig').tailwindcss.setup({ capabilities = capabilities })
 
 -- Python
 require('lspconfig').pyright.setup({})
@@ -30,6 +30,7 @@ vim.keymap.set('n', 'gi', ':Telescope lsp_implementations<CR>')
 vim.keymap.set('n', 'gr', ':Telescope lsp_references<CR>')
 vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
 vim.keymap.set('n', '<Leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
+vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 
 vim.diagnostic.config({
   virtual_text = false,
