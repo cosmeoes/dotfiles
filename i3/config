@@ -232,8 +232,9 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +2%; e
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -2%; ; exec pkill  -RTMIN+10 i3block #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle; exec pkill  -RTMIN+10 i3blocks # mute sound
 
-bindsym --release Print exec gscreenshot-cli -s -o -c 
-bindsym --release Shift+Print exec gscreenshot 
+bindsym Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+# bindsym --release Print exec gscreenshot-cli -s -o -c 
+# bindsym --release Shift+Print exec gscreenshot 
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec python ~/.config/scripts/brigthness.py -inc 20 # increase screen brightness
@@ -252,10 +253,10 @@ bindsym XF86AudioPrev exec playerctl previous
 #bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 bindsys --release Num_Lock pkill -SIGRTMIN+11 i3blocks
 exec_always --no-startup-id compton --backend glx --vsync --xrender-sync-fence
-exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/bar.jpg
+exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/astro_gellyfish.png
 exec --no-startup-id redshift -l 25.461625:-100.987774
 # screen layout
 workspace 1 output DP-4
 workspace 2 output HDMI-0
-exec --no-startup-id ~/.screenlayout/layout.sh
+# exec --no-startup-id ~/.screenlayout/layout.sh
 

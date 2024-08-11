@@ -50,6 +50,7 @@ use('christoomey/vim-tmux-navigator')
 use('farmergreg/vim-lastplace')
 use('nelstrom/vim-visual-star-search')
 use('jessarcher/vim-heritage')
+-- use('ervandew/ag')
 -- use({'github/copilot.vim'})
 use({
     'whatyouhide/vim-textobj-xmlattr',
@@ -114,6 +115,7 @@ use({
 
 use({
     'lukas-reineke/indent-blankline.nvim',
+    tag = 'v2.20.8',
     config = function()
         require('user.plugins.indent-blankline')
     end,
@@ -135,14 +137,14 @@ use({
     end,
 })
 
-use({
-    'akinsho/bufferline.nvim',
-    requires = 'kyazdani42/nvim-web-devicons',
-    after = 'dracula',
-    config = function()
-      require('user.plugins.bufferline')
-    end,
-})
+-- use({
+--     'akinsho/bufferline.nvim',
+--     requires = 'kyazdani42/nvim-web-devicons',
+--     after = 'dracula',
+--     config = function()
+--       require('user.plugins.bufferline')
+--     end,
+-- })
 
 use({
     'tpope/vim-fugitive',
@@ -177,16 +179,17 @@ use({
     requires = {
         'nvim-treesitter/playground',
         'nvim-treesitter/nvim-treesitter-textobjects',
-        'JoosepAlviste/nvim-ts-context-commentstring',
-    }, 
+        -- 'JoosepAlviste/nvim-ts-context-commentstring',
+    },
     config = function()
         require('user.plugins.treesitter')
     end,
 })
 
-use({
-    'nvim-treesitter/nvim-treesitter-context'
-})
+-- slow as shit on long files
+-- use({
+--     'nvim-treesitter/nvim-treesitter-context'
+-- })
 
 use({
   'weilbith/nvim-code-action-menu',
@@ -232,6 +235,7 @@ use({
   end,
 })
 
+use('/home/cosme/Documents/projects/vim-be-good')
 -- Automatically set up your configuration after cloning packer.nvim
 -- Put this at the end after all plugins
 if packer_bootstrap then

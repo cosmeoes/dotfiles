@@ -17,6 +17,8 @@ cmp.setup({
     format = lspkind.cmp_format(),
   },
   mapping = {
+    ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+    ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
     ["<Tab>"] = cmp.mapping(function(fallback)
       -- local copilot_keys = vim.fn["copilot#Accept"]()
       -- if copilot_keys ~= "" then

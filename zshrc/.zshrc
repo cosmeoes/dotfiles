@@ -104,17 +104,24 @@ alias vim="nvim"
 alias pa="php artisan"
 alias scripts="ssh cosme@161.35.120.45"
 alias cosmedev="ssh shopliber@159.89.82.207"
+alias factuland="ssh cosme@137.184.44.199"
+alias factulanddb="ssh cosme@146.190.174.2"
 alias safari='vim $(date +%N).txt'
-alias update-discord='pacman -U https://www.archlinux.org/packages/community/x86_64/discord/download/'
+alias update-discord='sudo pacman -U https://www.archlinux.org/packages/extra/x86_64/discord/download/'
 alias pm='python manage.py'
 alias pmr='python manage.py runserver'
 alias cr="printf \"import random\ngatos = ['damian', 'carlos', 'paul']\ngato1 = random.choice(gatos)\ngatos.remove(gato1)\nprint(gato1, random.choice(gatos))\" | python"
+alias models_php_docs="php artisan eloquent:bulk-phpdoc 'app/Models/*.php'"
+alias nviml="nvim --listen 127.0.0.1:55432"
+export GOPATH=$HOME/.local/go
 
 path=(
     $HOME/.local/bin
     $HOME/.config/composer/vendor/bin
     /usr/local/go/bin
     $HOME/.local/go/bin
+    $HOME/go/
+    /opt/resolve/bin/
     $path
 )
 
