@@ -3,14 +3,20 @@ require('mason').setup()
 require('mason-lspconfig').setup({ automatic_installation = true })
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+-- zig
+vim.lsp.config('zls', { 
+  capabilities = capabilities,
+  filetypes = { "zig", "zir" },
+  root_markers = { "build.zig", ".git" },
+  single_file_support = true,
+})
 
-local lspconfig = require('lspconfig')
 -- PHP
-lspconfig.intelephense.setup({ capabilities = capabilities })
+vim.lsp.config('intelephense', { capabilities = capabilities })
 -- lspconfig.phpactor.setup({ capabilities = capabilities })
 
 -- Vue
-lspconfig.volar.setup({
+vim.lsp.config('volar', {
   capabilities = capabilities,
   -- If you don't want to use hybrid mode 
   -- filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'},
@@ -21,35 +27,35 @@ lspconfig.volar.setup({
   -- },
 })
 
-local mason_registry = require('mason-registry')
-local vue_language_server_path = mason_registry.get_package('vue-language-server'):get_install_path() .. '/node_modules/@vue/language-server'
-lspconfig.tsserver.setup({
-    capabilities = capabilities,
-    root_dir = lspconfig.util.root_pattern('tsconfig.json', 'package.json', 'nuxt.config.ts', 'uno.config.ts', '.git'),
-    init_options = {
-      plugins = {
-        {
-          name = "@vue/typescript-plugin",
-          location = vue_language_server_path,
-          languages = { "vue" },
-        },
-      },
-    },
-  filetypes = {
-    "javascript",
-    "typescript",
-    "vue",
-  },
-})
+-- local mason_registry = require('mason-registry')
+-- local vue_language_server_path = mason_registry.get_package('vue-language-server'):get_install_path() .. '/node_modules/@vue/language-server'
+-- vim.lsp.config('tsserver', {
+--     capabilities = capabilities,
+--     root_dir = lspconfig.util.root_pattern('tsconfig.json', 'package.json', 'nuxt.config.ts', 'uno.config.ts', '.git'),
+--     init_options = {
+--       plugins = {
+--         {
+--           name = "@vue/typescript-plugin",
+--           location = vue_language_server_path,
+--           languages = { "vue" },
+--         },
+--       },
+--     },
+--   filetypes = {
+--     "javascript",
+--     "typescript",
+--     "vue",
+--   },
+-- })
 
 -- Tailwindcss
 -- lspconfig.tailwindcss.setup({ capabilities = capabilities })
 
 -- Python
-lspconfig.pyright.setup({})
+vim.lsp.config('pyright', {})
 
 -- golang
-lspconfig.gopls.setup({
+vim.lsp.config('gopls', {
   settings = {
     gopls = {
       analyses = {
@@ -62,11 +68,11 @@ lspconfig.gopls.setup({
 })
 
 -- gdscript 
-lspconfig.gdscript.setup({})
+vim.lsp.config('gdscript', {})
 
-lspconfig.csharp_ls.setup({})
+vim.lsp.config('csharp_ls', {})
 
-lspconfig.lua_ls.setup({})
+vim.lsp.config('lua_ls', {})
 
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*.go",
@@ -92,7 +98,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 -- C
-lspconfig.clangd.setup({})
+vim.lsp.config('clangd', {})
 
 vim.keymap.set('n', '<Leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>')
 vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')

@@ -252,11 +252,12 @@ bindsym XF86AudioPrev exec playerctl previous
 
 #bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 bindsys --release Num_Lock pkill -SIGRTMIN+11 i3blocks
-exec_always --no-startup-id compton --backend glx --vsync --xrender-sync-fence
+exec_always --no-startup-id picom --config ~/.config/picom/picom.conf 
+#exec_always --no-startup-id compton --backend glx --vsync --xrender-sync-fence
+exec --no-startup-id ~/.screenlayout/layout.sh
 exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/astro_gellyfish.png
 exec --no-startup-id redshift -l 25.461625:-100.987774
 # screen layout
 workspace 1 output DP-4
 workspace 2 output HDMI-0
-# exec --no-startup-id ~/.screenlayout/layout.sh
-
+#exec --no-startup-id firefox-developer-edition "https://docs.google.com/document/d/1QomBI9Z0z_stJp4KpXJssZOY3nsBzQmbjOULNFYdp8M/edit"

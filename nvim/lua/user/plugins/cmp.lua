@@ -8,6 +8,7 @@ local has_words_before = function()
 end
 
 cmp.setup({
+    enabled = false,
   snippet = {
     expand = function(args)
       require('luasnip').lsp_expand(args.body)
@@ -17,6 +18,7 @@ cmp.setup({
     format = lspkind.cmp_format(),
   },
   mapping = {
+    ['<C-Space>'] = cmp.complete(),
     ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
     ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
     ["<Tab>"] = cmp.mapping(function(fallback)

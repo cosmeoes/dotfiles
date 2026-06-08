@@ -58,7 +58,7 @@ font-2 = "Noto Sans:size=14;1"
 
 modules-left = i3
 ; modules-center = mpd
-modules-right = filesystem pulseaudio xkeyboard memory cpu wlan eth temperature date powermenu
+modules-right = pomodoro filesystem pulseaudio xkeyboard memory cpu wlan eth temperature date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -97,6 +97,23 @@ label-indicator-padding = 2
 label-indicator-margin = 1
 label-indicator-background = ${colors.secondary}
 label-indicator-underline = ${colors.secondary}
+
+[module/pomodoro]
+type = custom/script
+; 100 mins = 6000 secs
+exec = /home/cosme/Documents/projects/i3blocks-pomodoro/pomodoro 5999
+exec-if = ! pgrep -x pomodoro
+tail = true
+label = %output%
+click-left = pkill -USR1 -x pomodoro 
+double-click-middle = pkill -USR2 -x pomodoro
+click-right = pkill -RTMIN -x pomodoro
+double-click-right = pkill -RTMIN+1 -x pomodoro
+; click-middle = echo middle %counter%
+; click-right = echo right %counter%
+; double-click-left = echo double left %counter%
+; double-click-middle = echo double middle %counter%
+; double-click-right = echo double right %counter%
 
 [module/filesystem]
 type = internal/fs

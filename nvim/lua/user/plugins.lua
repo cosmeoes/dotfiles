@@ -45,7 +45,7 @@ use('tpope/vim-eunuch')
 use('tpope/vim-unimpaired')
 use('tpope/vim-sleuth')
 use('tpope/vim-repeat')
-use('sheerun/vim-polyglot')
+--use('sheerun/vim-polyglot')
 use('christoomey/vim-tmux-navigator')
 use('farmergreg/vim-lastplace')
 use('nelstrom/vim-visual-star-search')
@@ -179,7 +179,7 @@ use({
     requires = {
         'nvim-treesitter/playground',
         'nvim-treesitter/nvim-treesitter-textobjects',
-        -- 'JoosepAlviste/nvim-ts-context-commentstring',
+--         -- 'JoosepAlviste/nvim-ts-context-commentstring',
     },
     config = function()
         require('user.plugins.treesitter')

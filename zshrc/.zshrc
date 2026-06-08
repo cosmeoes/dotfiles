@@ -24,7 +24,7 @@ ZSH_THEME="robbyrussell"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
+zstyle ':omz:update' mode disabled  # disable automatic updates
 # zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
@@ -116,6 +116,7 @@ alias nviml="nvim --listen 127.0.0.1:55432"
 export GOPATH=$HOME/.local/go
 
 path=(
+    $HOME/.cargo/bin
     $HOME/.local/bin
     $HOME/.config/composer/vendor/bin
     /usr/local/go/bin
@@ -128,3 +129,10 @@ path=(
 if [ -d env ]; then
     source env/bin/activate
 fi
+source /usr/share/nvm/init-nvm.sh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/cosme/Downloads/casey/google-cloud-sdk/path.zsh.inc' ]; then . '/home/cosme/Downloads/casey/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/cosme/Downloads/casey/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/cosme/Downloads/casey/google-cloud-sdk/completion.zsh.inc'; fi
